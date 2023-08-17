@@ -23,6 +23,7 @@ fi
 echo "Waiting until backend is ready..."
 sleep 10
 
+is_running=$(bash is_backend_running.sh)
 if [[ ${is_running} == "1" ]]
 then
   echo "Success: backend is now running. Yay :-)"
