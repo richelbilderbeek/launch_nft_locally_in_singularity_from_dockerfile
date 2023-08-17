@@ -1,17 +1,36 @@
-# Run NFT locally from a Singularity container
+# Run NFT locally in a Singularity container from a Dockerfile
 
-## Get the Docker files
+
+
+## 1. Get the Docker files
+
+Run [pull_dockerfiles.sh](pull_dockerfiles.sh):
 
 ```
 ./pull_dockerfiles.sh
 ```
 
-## Get the Singularity containers
+## 2. Get the Singularity containers
+
+Run [create_singularity_containers.sh](create_singularity_containers.sh):
 
 ```
 ./create_singularity_containers.sh
 ```
 
+## 3. Start the containers
+
+Run [start_backend.sh](start_backend.sh):
+
+```
+./start_backend.sh
+```
+
+Run [start_frontend.sh](start_frontend.sh):
+
+```
+./start_frontend.sh
+```
 
 ## Troubleshooting
 
