@@ -15,7 +15,7 @@ then
   echo "Singularity image file '${singularity_filename}' already present."
 else
   echo "Singularity image file '${singularity_filename}' absent. Pulling it now."
-  singularity pull "docker://${docker_image_name}"
+  singularity pull --dir backend "docker://${docker_image_name}"
 
   # Confirm it works
   if [[ -f ${singularity_filename} ]]
@@ -34,7 +34,7 @@ then
   echo "Singularity image file '${singularity_filename}' already present."
 else
   echo "Singularity image file '${singularity_filename}' absent. Pulling it now."
-  singularity pull "docker://${docker_image_name}"
+  singularity pull --dir frontend "docker://${docker_image_name}"
   exit 42
 
   # Confirm it works
