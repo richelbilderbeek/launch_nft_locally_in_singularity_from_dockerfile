@@ -156,6 +156,10 @@ Singularity> find . | egrep nginx
 ./etc/nginx/conf.d
 ```
 
+```
+singularity exec frontend/nf-tower_web-latest.sif cat /etc/nginx/nginx.conf
+```
+
 ## Troubleshooting
 
 
