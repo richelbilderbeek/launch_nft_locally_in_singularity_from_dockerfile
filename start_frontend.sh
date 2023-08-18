@@ -18,6 +18,28 @@ else
   exit 1
 fi
 
+# Check for latest version
+if [ ! -d "../nextflow_troubleshooting" ]
+then
+  echo "ERROR: cannot find folder '../nextflow_troubleshooting'"
+  echo " "
+  echo "Tip: Run:"
+  echo " "
+  echo "cd .."
+  echo "git clone https://github.com/richelbilderbeek/nextflow_troubleshooting"
+fi
+
+(
+  cd ../nextflow_troubleshooting || exit 42
+  script_filename="scripts/update_singularity.sh"
+  if [ ! -f "${script_filename}" ]
+  then
+    echo "ERROR: ${script_filename} not found."
+    exit 42
+  fi
+  bash "${script_filename}"
+)
+
 (
   cd frontend || exit 42
   ./download_nginx_conf.sh
