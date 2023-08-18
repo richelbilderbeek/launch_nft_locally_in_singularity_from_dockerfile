@@ -123,6 +123,16 @@ nginx: [emerg] host not found in upstream "backend:8080" in /etc/nginx/nginx.con
  * Hypothesis: this is because the backend is not running.
    * To find this out: `./is_backend_running.sh`
      * If the backend is not running, do `./nf-tower_backend-latest.sif`
+ * Hypothesis [FAILS]: Needs a redirect
+
+```
+# This must be TRUE
+./is_ssh_server_running.sh
+ssh -L 8080:backend:8000
+```
+
+Never got this to work, in many combination
+
  * Hypothesis: the SSH server `upstream` must be defined, from [here](https://github.com/seqeralabs/nf-tower/blob/6e483c48633106f0e157278a94ee74710abe0353/COMPONENTS.md?plain=1#L15):
 
 ```
@@ -135,19 +145,44 @@ Config:
   - tower-web/proxy.conf.json  [dev]
 ```
 
-Solution:
-
-```
-./download_nginx_conf.sh
-./download_proxy_config_json.sh
-sudo apt-get install nginx
-```
-
 
 
 ```
-??
-ssh -L 8080:backend:8000
+Singularity> find . | egrep nginx
+./etc/init.d/nginx
+./etc/init.d/nginx-debug
+./etc/logrotate.d/nginx
+./etc/nginx
+./etc/nginx/conf.d
+```
+
+## Troubleshooting
+
+
+### ssh: connect to host localhost port 22: Connection refused
+
+To reproduce:
+
+```
+ssh -L 123:localhost:456 localhost
+```
+
+To observe the problem:
+
+```
+$ which ssh
+/usr/bin/ssh
+$ which sshd
+$ sshd
+Command 'sshd' not found, but can be installed with:
+sudo apt install openssh-server
+```
+
+The problem is that there is no SSH server running on the localhost.
+Install it:
+
+```
+$ sudo apt install openssh-server
 ```
 
 ## Links

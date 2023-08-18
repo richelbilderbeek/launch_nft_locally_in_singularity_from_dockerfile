@@ -8,6 +8,7 @@
 #   ./is_backend_running.sh --verbose
 #
 
+# Be verbose
 if [ "$#" -ne 0 ]
 then 
   ss -natu | grep 8080
