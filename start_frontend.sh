@@ -40,6 +40,15 @@ fi
   bash "${script_filename}"
 )
 
+if [ $(bash is_ssh_server_running.sh) -eq "0" ]
+then
+  echo "ERROR: ssh server is not running"
+  echo " "
+  echo "Tip: run:"
+  echo " "
+  echo "sudo apt install openssh-server"
+fi
+
 #(
 #  cd frontend || exit 42
 #  ./download_nginx_conf.sh
