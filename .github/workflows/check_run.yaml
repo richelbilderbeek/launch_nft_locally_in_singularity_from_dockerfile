@@ -27,7 +27,7 @@ jobs:
       - name: Get the latest Singularity
         run: |
           cd ../nextflow_troubleshooting
-          ./scripts/upgrade_singularity.sh
+          ./scripts/update_singularity.sh
           cd -
 
 #      - uses: eWaterCycle/setup-singularity@v7
