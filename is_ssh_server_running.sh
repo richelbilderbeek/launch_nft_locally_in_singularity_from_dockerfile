@@ -15,7 +15,7 @@
 #   * In verbose mode, prints more
 #
 
-verbose=$(expr "$#" != 0)
+verbose=$(("$#" != 0))
 
 if [ "${verbose}" -eq 1 ]
 then
