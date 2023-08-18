@@ -40,7 +40,8 @@ fi
   bash "${script_filename}"
 )
 
-if [ $(bash is_ssh_server_running.sh) -eq "0" ]
+is_ssh_server_running=$(bash is_ssh_server_running.sh)
+if [ "${is_ssh_server_running}" -eq "0" ]
 then
   echo "ERROR: ssh server is not running"
   echo " "
