@@ -35,7 +35,6 @@ then
 else
   echo "Singularity image file '${singularity_filename}' absent. Pulling it now."
   singularity pull --dir frontend "docker://${docker_image_name}"
-  exit 42
 
   # Confirm it works
   if [[ -f ${singularity_filename} ]]
