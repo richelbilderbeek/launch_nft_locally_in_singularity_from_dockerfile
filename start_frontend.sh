@@ -49,6 +49,8 @@ then
   echo " "
   echo "sudo apt install openssh-server"
   exit 42
+else
+  echo "SSH server is running"
 fi
 
 #(
