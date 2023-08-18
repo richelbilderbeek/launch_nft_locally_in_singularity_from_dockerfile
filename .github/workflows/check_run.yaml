@@ -1,0 +1,25 @@
+name: Check run
+
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: "0 0 16 * *"
+
+
+jobs:
+  check_run:
+
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+
+      - name: Start the backend
+        run: ./start_backend.sh
+
+      - name: Start the frontend
+        run: ./start_frontend.sh
