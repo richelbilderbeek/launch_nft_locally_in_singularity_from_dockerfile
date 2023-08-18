@@ -18,9 +18,21 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
-      - uses: eWaterCycle/setup-singularity@v7
-        with:
-          singularity-version: 3.8.3
+      - name: Clone a repo that is needed
+        run: |
+          cd ..
+          git clone https://github.com/richelbilderbeek/nextflow_troubleshooting
+          cd -
+
+      - name: Get the latest Singularity
+        run: |
+          cd ../nextflow_troubleshooting
+          ./scripts/upgrade_singularity.sh
+          cd -
+
+#      - uses: eWaterCycle/setup-singularity@v7
+#        with:
+#          singularity-version: 3.8.3
 
       - name: Build the Singularity containers
         run: ./create_singularity_containers.sh
@@ -28,11 +40,6 @@ jobs:
       - name: Start the backend
         run: ./start_backend.sh
 
-      - name: Clone a repo that is needed
-        run: |
-          cd ..
-          git clone https://github.com/richelbilderbeek/nextflow_troubleshooting
-          cd -
 
       - name: Start the frontend
         run: ./start_frontend.sh
