@@ -30,6 +30,12 @@ jobs:
           ./scripts/update_singularity.sh
           cd -
 
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: true
+
 #      - uses: eWaterCycle/setup-singularity@v7
 #        with:
 #          singularity-version: 3.8.3
