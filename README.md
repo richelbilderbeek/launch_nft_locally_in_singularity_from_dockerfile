@@ -1,6 +1,8 @@
 # Run NFT locally in a Singularity container from a Dockerfile
 
-
+Goal is to run the Nextflow Tower community edition locally,
+as a Singularity container,
+starting from a Dockerfile.
 
 ## 1. Get the Docker files
 
