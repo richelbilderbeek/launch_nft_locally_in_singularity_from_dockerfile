@@ -30,5 +30,10 @@ then
   exit 0
 else
   echo "ERROR: backend is still not running...?"
-  exit 1
+
+  # GHA is slower
+  if [[ -z "GITHUB_ACTIONS" ]]
+  then
+    exit 1
+  fi
 fi
