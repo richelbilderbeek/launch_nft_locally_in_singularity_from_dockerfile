@@ -18,6 +18,9 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
+      - name: Build the Singularity containers
+        run: ./create_singularity_containers.sh
+
       - name: Start the backend
         run: ./start_backend.sh
 
