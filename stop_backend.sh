@@ -33,6 +33,9 @@ fi
 pid=$(lsof -i tcp:8080 | tail -n 1 | grep -E "java[[:space:]]+(.*)[[:space:]]+$USER" | awk '{print $2}')
 kill "${pid}"
 
+echo "Waiting a bit..."
+sleep 10
+
 is_running=$(bash is_backend_running.sh)
 if [[ ${is_running} == "1" ]]
 then
