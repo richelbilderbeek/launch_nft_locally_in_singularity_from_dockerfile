@@ -28,5 +28,11 @@ jobs:
       - name: Start the backend
         run: ./start_backend.sh
 
+      - name: Clone a repo that is needed
+        run: |
+          cd ..
+          git clone https://github.com/richelbilderbeek/nextflow_troubleshooting
+          cd -
+
       - name: Start the frontend
         run: ./start_frontend.sh
