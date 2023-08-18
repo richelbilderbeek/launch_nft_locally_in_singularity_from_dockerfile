@@ -40,10 +40,10 @@ fi
   bash "${script_filename}"
 )
 
-(
-  cd frontend || exit 42
-  ./download_nginx_conf.sh
-)
+#(
+#  cd frontend || exit 42
+#  ./download_nginx_conf.sh
+#)
 
 (
   cd frontend || exit 42
