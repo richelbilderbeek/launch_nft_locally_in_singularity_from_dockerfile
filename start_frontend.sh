@@ -47,6 +47,7 @@ then
   echo "Tip: run:"
   echo " "
   echo "sudo apt install openssh-server"
+  exit 42
 fi
 
 #(
