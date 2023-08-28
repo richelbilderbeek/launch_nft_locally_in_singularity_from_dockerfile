@@ -16,7 +16,7 @@ else
   echo "Backend is not running, starting it"
   (
     cd backend || exit 42
-    ./nf-tower_backend-latest.sif &
+    singularity run --hostname=backend nf-tower_backend-latest.sif &
   )
 fi
 
