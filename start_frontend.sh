@@ -15,7 +15,8 @@ else
   echo "ERROR: Backend is not running"
   echo " "
   echo "Tip: run ./start_backend.sh"
-  exit 1
+  echo "NOPE JSUTS TDEIYFEFWOF"
+  # exit 1
 fi
 
 # Check for latest version
@@ -65,5 +66,6 @@ fi
 
 (
   cd frontend || exit 42
-  ./nf-tower_web-latest.sif
+  # ./nf-tower_web-latest.sif
+  singularity run --net --network=none --hostname=frontend nf-tower_web-latest.sif &
 )
