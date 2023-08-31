@@ -12,11 +12,11 @@ if [[ ${is_running} == "1" ]]
 then
   echo "Backend is running. Continuing"
 else
-  echo "ERROR: Backend is not running"
+  echo "WARNING: Backend seems not to be running"
   echo " "
   echo "Tip: run ./start_backend.sh"
-  echo "NOPE JSUTS TDEIYFEFWOF"
-  # exit 1
+  echo " "
+  echo "Ignoring this warning :-)"
 fi
 
 # Check for latest version
@@ -67,5 +67,11 @@ fi
 (
   cd frontend || exit 42
   # ./nf-tower_web-latest.sif
-  singularity run --net --network=none --hostname=frontend nf-tower_web-latest.sif &
+
+  export TOWER_SMTP_USER="richel"
+  export TOWER_SMTP_PASSWORD="iloverichel"
+
+  # singularity run --net --network=none --hostname=frontend nf-tower_web-latest.sif &
+  #singularity run --fakeroot --net --hostname=frontend nf-tower_web-latest.sif &
+  singularity run --fakeroot --net --network=none --hostname=frontend nf-tower_web-latest.sif &
 )
