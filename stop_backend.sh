@@ -12,10 +12,11 @@ if [[ ${is_running} == "1" ]]
 then
   echo "Backend is running. Continuing"
 else
-  echo "ERROR: Backend is not running, hence I cannot stop it"
+  echo "WARNING: Backend is not running, hence I cannot stop it"
   echo " "
   echo "Tip: run ./start_backend.sh"
-  exit 1
+  echo " "
+  echo "Proceeding anyways :-)"
 fi
 
 if [ "$#" -ne 0 ]
