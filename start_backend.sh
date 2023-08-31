@@ -19,6 +19,8 @@ else
 
     
 
+    export TOWER_SMTP_USER="richel"
+    export TOWER_SMTP_PASSWORD="iloverichel"
     singularity run --fakeroot --net --hostname=backend nf-tower_backend-latest.sif &
 
     # singularity run nf-tower_backend-latest.sif &
