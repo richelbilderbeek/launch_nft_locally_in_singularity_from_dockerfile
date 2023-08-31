@@ -19,10 +19,12 @@ else
 
     
 
+    singularity run --fakeroot --net --hostname=backend nf-tower_backend-latest.sif &
+
     # singularity run nf-tower_backend-latest.sif &
 
     # New attempt by with MD
-    singularity run --net --network=none --hostname=backend nf-tower_backend-latest.sif &
+    #singularity run --net --network=none --hostname=backend nf-tower_backend-latest.sif &
 
     # Still fails, gives output: 
     #
