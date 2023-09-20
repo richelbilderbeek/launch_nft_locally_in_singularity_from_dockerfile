@@ -22,7 +22,7 @@ else
     export TOWER_SMTP_USER="richel"
     export TOWER_SMTP_PASSWORD="iloverichel"
 
-    singularity run --fakeroot --net --network=none --hostname=backend nf-tower_backend-latest.sif &
+    # singularity run --fakeroot --net --network=none --hostname=backend nf-tower_backend-latest.sif &
     # singularity run --fakeroot --net --hostname=backend nf-tower_backend-latest.sif &
 
     # singularity run nf-tower_backend-latest.sif &
@@ -33,7 +33,7 @@ else
     # Still fails, gives output: 
     #
     # Server Running: http://localhost:8080
-    # singularity run --hostname=backend nf-tower_backend-latest.sif &
+    singularity run --hostname=backend nf-tower_backend-latest.sif &
 
     # FATAL:   container creation failed: dns ip backend:8080 is not a valid IP address
     # singularity run --dns backend:8080 nf-tower_backend-latest.sif &
